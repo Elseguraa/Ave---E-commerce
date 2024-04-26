@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión del Carrito</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="./img/png2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@500&display=swap" rel="stylesheet" />
+    <style>
+        nav {
+            background-color: #181818;
+            padding: 83px 55px;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            
+        }
+
+        nav::after {
+        content: "";
+        position: absolute;
+        top: 20.5%;
+        left: 0;
+        width: 100%;
+        height: 20vh; 
+        background: linear-gradient(to bottom, rgba(173, 216, 230, 0.5), rgba(255, 255, 255, 0));
+
+
+    
+}
+    
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+    
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+
+        }
+    
+        nav ul li a {
+            position: relative;
+            letter-spacing: 4px;
+            color: #fff;
+            text-shadow: 0 0 3px #fff !important;
+            
+        }
+    
+        nav ul li a::after {
+            letter-spacing: 4px;
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background: #0290bb;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform 0.2s ease-in-out;
+        }
+    
+        nav ul li a:hover:after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+        .v-title {
+    margin: 0;
+    color: #fff;
+    position: relative;
+    right: 1450px;
+    }
+
+
+.v-title:hover {
+    margin: 0;
+    color: #0290bb;
+    position: relative;
+    right: 1450px;
+    transition: all 0.3s;
+}
+
+
+
+
+
+
+#carritoProductos {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    
+}
+.producto-carrito .info-producto {
+    flex-grow: 1; 
+}
+
+.producto-carrito .info-producto button {
+    margin-left: auto; 
+}
+
+
+
+.producto-carrito {
+    background-color: white;
+    width: 400px; 
+    margin: 10px; 
+    border: 2px solid #888888;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border-radius: 10px ;
+}
+
+
+.producto-carrito img {
+    max-width: 100px;
+    margin-right: 10px;
+    
+}
+
+.producto-carrito h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.producto-carrito p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.producto-carrito input[type="number"] {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.producto-carrito button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#btnComprar {
+    margin: 0 auto; 
+}
+
+.producto-carrito button:hover {
+    background-color: #c82333;
+}
+
+#mensajeCompraExitosa {
+    display: none;
+    background-color: #0290bb; 
+    color: white; 
+    text-align: center; 
+    padding: 10px; 
+    position: fixed;
+    bottom:35%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    border-radius: 5px; 
+    z-index: 1; 
+}
+    </style>
+    
+</head>
+<body>
+
+    <nav>
+
+        <a href="index.html">
+            <h1 class="v-title">V</h1>
+        </a>
+
+
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="gestion-carrito.html">Carrito</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="backgroundd">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h1>Carrito de Compras</h1>
+        <div id="carritoProductos" class="carrito-productos"></div>   
+        <div id="mensajeCarritoVacio" style="display: none;">
+            
+        </div>  
+        <br>
+        <button id="btnComprar" class="btn-agregar" onclick="comprar();" style="display: none;">Comprar</button> <!-- Botón inicialmente oculto -->
+        <div id="mensajeCompraExitosa" class="mensaje-exitoso" style="display: none;">
+            <p>¡La compra fue realizada con éxito!</p>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+    <script>
+        
+        mostrarProductosEnCarrito();
+        
+        
+        async function comprar() {
+            try {
+                const response = await fetch('http://localhost:3000/compras', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(carrito) 
+                });
+                const data = await response.json();
+                console.log(data.message); 
+                
+                carrito = [];
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                mostrarProductosEnCarrito(); 
+                mostrarMensajeCompraExitosa(); 
+            } catch (error) {
+                console.error('Error al realizar la compra:', error);
+                
+                alert('Ocurrió un error al realizar la compra. Por favor, inténtelo de nuevo.');
+            }
+        }
+
+        // Función para mostrar el mensaje de compra exitosa
+        function mostrarMensajeCompraExitosa() {
+            const mensajeCompraExitosa = document.getElementById('mensajeCompraExitosa');
+            mensajeCompraExitosa.style.display = 'block';
+            
+            setTimeout(() => {
+                mensajeCompraExitosa.style.display = 'none';
+            }, 3000);
+        }
+
+        // Función para verificar si el carrito está vacío y mostrar el mensaje correspondiente
+        function verificarCarritoVacio() {
+            const carrito = JSON.parse(localStorage.getItem('carrito'));
+            const mensajeCarritoVacio = document.getElementById('mensajeCarritoVacio');
+            const btnComprar = document.getElementById('btnComprar');
+            if (!carrito || carrito.length === 0) {
+                
+                mensajeCarritoVacio.style.display = 'block';
+                btnComprar.style.display = 'none';
+                
+                mostrarMensajeCompraExitosa();
+            } else {
+                
+                mensajeCarritoVacio.style.display = 'none';
+                btnComprar.style.display = 'block';
+            }
+        }
+
+        // Llamar a la función para verificar el estado del carrito cuando la página cargue
+        window.onload = verificarCarritoVacio;
+    </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./img/png2.png">
+
+    <style>
+        nav {
+            background-color: #181818;
+            padding: 83px 55px;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        nav::after {
+        content: "";
+        position: absolute;
+        top: 20.5%;
+        left: 0;
+        width: 100%;
+        height: 20vh; 
+        background: linear-gradient(to bottom, rgba(173, 216, 230, 0.5), rgba(255, 255, 255, 0));
+
+
+        }
+    
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+    
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+
+        }
+    
+        nav ul li a {
+            position: relative;
+            letter-spacing: 4px;
+            color: #fff;
+            text-shadow: 0 0 3px #fff !important;
+        }
+    
+        nav ul li a::after {
+            letter-spacing: 4px;
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background: #0290bb;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform 0.2s ease-in-out;
+        }
+    
+        nav ul li a:hover:after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+        .v-title {
+    margin: 0;
+    color: #fff;
+    position: relative;
+    right: 1450px;
+    }
+
+
+.v-title:hover {
+    margin: 0;
+    color: #0290bb;
+    position: relative;
+    right: 1450px;
+    transition: all 0.3s;
+}
+
+
+
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px auto; 
+    width: 70%;
+}
+
+.about-text {
+    width: 45%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-text h2 {
+    color: #0290bb;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+#map {
+    height: 313px;
+    width: 50%;
+    margin: 0 auto; 
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contact-form textarea {
+    resize: vertical; 
+}
+
+    </style>
+</head>
+<body>
+    
+    <nav>
+
+        <a href="index.html">
+            <h1 class="v-title">V</h1>
+        </a>
+
+
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="gestion-carrito.html">Carrito</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+
+    
+
+    <div class="backgroundd">
+        
+        <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Contacto</h1>
+    <br>
+    <br>
+        <div class="about-container">
+            <!-- Contenedor de "Sobre nosotros" -->
+            <div class="about-text">
+                <h2>Sobre Nosotros</h2>
+                <p>Ave es una empresa dedicada a la innovación y excelencia en el campo de la tecnología. Nuestra misión es proporcionar soluciones creativas y eficientes para nuestros clientes, manteniendo siempre los más altos estándares de calidad y servicio al cliente.</p>
+                <p>Estamos ubicados en una moderna oficina en el corazón de la ciudad, lo que nos permite estar cerca de nuestros clientes y mantenernos actualizados con las últimas tendencias en tecnología.</p>
+            </div>
+
+            <!-- Mapa de Google -->
+            <div id="map"></div>
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+        
+
+        <br>
+        <br>
+
+        <div class="contact-form">
+
+    <form id="contactForm" action="#">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" required>
+        
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" required>
+        
+    <label for="message">Mensaje:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+        
+    <button type="submit" class="btn-agregar">Enviar mensaje</button>
+</form>
+
+
+
+
+
+<div id="successModal" class="custom-modal">
+    <div class="custom-modal-content">
+      <span class="close-custom-modal">&times;</span>
+      <p>¡Mensaje enviado con éxito!</p>
+    </div>
+  </div>
+  
+  
+            
+        </div>
+        
+
+    </div>
+
+    <br>
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
+            <p>Hecho con 💗 por Lucas Segura</p> 
+        </div>
+    </footer>
+
+
+    <script>
+       
+        var modal = document.getElementById("successModal");
+
+        
+        var closeButton = document.getElementsByClassName("close-custom-modal")[0];
+
+       
+        closeButton.onclick = function() {
+            modal.style.display = "none";
+        }
+
+      
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Lógica para mostrar el modal después de enviar el formulario
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+        
+            event.preventDefault();
+          
+          
+            modal.style.display = "block";
+
+        
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+
+
+<script>
+    function iniciarMap(){
+    var coord = {lat:-34.5956145 ,lng: -58.4431949};
+    var map = new google.maps.Map(document.getElementById('map'),{
+      zoom: 10,
+      center: coord
+    });
+    var marker = new google.maps.Marker({
+      position: coord,
+      map: map
+    });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+
+
+    <script src="script.js">
+
+
+
+        
+    </script>
+</body>
+</html>
