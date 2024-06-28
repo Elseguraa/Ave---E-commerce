@@ -36,7 +36,7 @@ Este proyecto consiste en desarrollar una página web que consume el listado de 
   - Existe una página de gestión del carrito donde se muestran todos los productos agregados, permitiendo eliminar y modificar cantidades.
   - Incluye un botón para finalizar la compra, enviando la información al servidor para su registro permanente. No se requiere información vinculada al usuario para realizar compras.
  
-[![image.png](https://i.postimg.cc/3xrBTjs9/image.png)](https://postimg.cc/gn5Ryhk6)
+[![a1.jpg](https://i.postimg.cc/8CKX3Xsh/a1.jpg)](https://postimg.cc/qtKG6LsR)
 
 ## Configuración y Ejecución del Proyecto
 
