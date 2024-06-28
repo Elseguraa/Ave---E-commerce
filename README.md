@@ -1,11 +1,11 @@
-# Página Web para Gestión de Productos con Node.js y Express
+# Ave: Página Web para Gestión de Productos con Node.js y Express
 
 [![ave-1.png](https://i.postimg.cc/5tcZgRYj/ave-1.png)](https://postimg.cc/hXryPM0q)
 
 Este proyecto consiste en desarrollar una página web que consume el listado de productos proporcionado por la API de FakeStore. Utiliza tecnologías como HTML, CSS, JavaScript, Express.js, Node.js server y Bootstrap para su implementación.
 
 
-[![ave-2.png](https://i.postimg.cc/Jnxv17TB/ave-2.png)](https://postimg.cc/1ngJBS19)
+[![image.png](https://i.postimg.cc/FKZDSW0M/image.png)](https://postimg.cc/SXn6FGTd)
 
 ## Características del Proyecto
 
