@@ -5,7 +5,7 @@
 Este proyecto consiste en desarrollar una página web que consume el listado de productos proporcionado por la API de FakeStore. Utiliza tecnologías como HTML, CSS, JavaScript, Express.js, Node.js server y Bootstrap para su implementación.
 
 
-[![image.png](https://i.postimg.cc/FKZDSW0M/image.png)](https://postimg.cc/SXn6FGTd)
+
 
 ## Características del Proyecto
 
@@ -36,7 +36,7 @@ Este proyecto consiste en desarrollar una página web que consume el listado de 
   - Existe una página de gestión del carrito donde se muestran todos los productos agregados, permitiendo eliminar y modificar cantidades.
   - Incluye un botón para finalizar la compra, enviando la información al servidor para su registro permanente. No se requiere información vinculada al usuario para realizar compras.
  
-  [![ave-3.png](https://i.postimg.cc/bNWMYBRL/ave-3.png)](https://postimg.cc/dLRn4npT)
+[![image.png](https://i.postimg.cc/FKZDSW0M/image.png)](https://postimg.cc/SXn6FGTd)
 
 ## Configuración y Ejecución del Proyecto
 
